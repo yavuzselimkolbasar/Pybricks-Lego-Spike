@@ -100,10 +100,3 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 ---
 
 Enjoy building and programming your LEGO robots!
-
----
-
-### Demo GIFs
-
-![Boxing Robot in Action](https://placeholder.com/boxing_robot_demo.gif)  
-![Remote-Controlled Car in Action](https://placeholder.com/remote_car_demo.gif)
