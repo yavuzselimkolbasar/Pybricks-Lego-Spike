@@ -21,9 +21,9 @@ class Arm:
     def move_arm(self, down):
         # Move the arm up or down based on the 'down' parameter
         if down:
-            self.arm_motor.run_target(10, -90, wait=False)  # Move arm down
+            self.arm_motor.run_target(300, -90, wait=False)  # Move arm down
         else:
-            self.arm_motor.run_target(10, 0, wait=False)  # Move arm up
+            self.arm_motor.run_target(300, 0, wait=False)  # Move arm up
 
 hub = PrimeHub()
 left_motor = Motor(Port.C, Direction.CLOCKWISE)
@@ -45,6 +45,9 @@ while True:
 
 # Define the deadzone threshold
 DEADZONE_THRESHOLD = 80  # Adjust this value as needed
+
+# Define a speed scaling factor to reduce speed
+SPEED_SCALE_FACTOR = 0.8  # Adjust this value as needed (0.0 to 1.0)
 
 while True:
     # Read the triggers for forward and backward movement
@@ -69,11 +72,15 @@ while True:
 
     # Adjust steering based on joystick movement
     # Apply non-linear scaling to make turning slower and more responsive
-    steering_adjustment = horizontal * 5 # Reduce this value to make turns slower
+    steering_adjustment = horizontal * 0.8  # Reduce this value to make turns slower
 
     # Apply steering adjustments
     left_power -= steering_adjustment
     right_power += steering_adjustment
+
+    # Scale down the motor power to reduce speed
+    left_power *= SPEED_SCALE_FACTOR
+    right_power *= SPEED_SCALE_FACTOR
 
     # Drive the robot
     tank_drive.drive(left_power, right_power)
