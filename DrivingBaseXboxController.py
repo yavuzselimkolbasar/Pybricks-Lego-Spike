@@ -14,12 +14,6 @@ class TankDrive:
         self.left_motor.dc(left_power)
         self.right_motor.dc(right_power)
 
-    def get_load(self):
-        # Calculate the average load of both motors
-        left_load = self.left_motor.load()
-        right_load = self.right_motor.load()
-        return (left_load + right_load) / 2
-
 class Arm:
     def __init__(self, arm_motor):
         self.arm_motor = arm_motor
@@ -52,9 +46,6 @@ while True:
 # Define the deadzone threshold
 DEADZONE_THRESHOLD = 80  # Adjust this value as needed
 
-# Define the load threshold for vibration feedback
-LOAD_THRESHOLD = 5 # Adjust this value based on your robot's characteristics
-
 while True:
     # Read the triggers for forward and backward movement
     triggers = xbox.triggers()
@@ -78,7 +69,7 @@ while True:
 
     # Adjust steering based on joystick movement
     # Apply non-linear scaling to make turning slower and more responsive
-    steering_adjustment = horizontal * 5  # Reduce this value to make turns slower
+    steering_adjustment = horizontal * 5 # Reduce this value to make turns slower
 
     # Apply steering adjustments
     left_power -= steering_adjustment
@@ -92,11 +83,5 @@ while True:
         arm.move_arm(down=True)  # Move arm down when button A is pressed
     else:
         arm.move_arm(down=False)  # Move arm up when button A is released
-
-    # Check motor load and provide vibration feedback if necessary
-    if tank_drive.get_load() > LOAD_THRESHOLD:
-        xbox.rumble(100, 100)  # Activate both motors at full vibration
-        wait(500)  # Vibrate for 500 ms
-        xbox.rumble(0, 0)  # Stop vibration
 
     wait(50)
