@@ -106,8 +106,8 @@ This script provides Xbox Controller control for the standard **[LEGO Education 
 2.  Install Pybricks firmware on your hub by following the [official guide](https://pybricks.com/learn/getting-started/install-pybricks/).
 3.  Connect the appropriate motors to the hub ports as described in the chosen script (`Boxing.py`, `Remote-Car.py`, or `DrivingBaseXboxController.py`). Pay attention to the motor roles (Drive, Steering, Arm) and required attachments.
 4.  Copy the corresponding script to the hub using the Pybricks code editor.
-5.  Pair your Xbox controller with the hub via Bluetooth.
-6.  Run the script on your hub and control your robot using the Xbox controller.
+5.  Run the script on your hub
+6.  Pair your Xbox controller with the hub via Bluetooth and control your robot using the Xbox controller.
 
 ---
 
@@ -121,7 +121,7 @@ This script provides Xbox Controller control for the standard **[LEGO Education 
 
 ## Future Improvements
 
-- Add more feedback to the controller, such as vibrations or LED signals.
+- Add more feedback to the controller, such as vibrations or LED signals. Such as FFB can make the response time higher.
 - Implement additional modes and functionality, such as autonomous features or sensor integration.
 - Refine control sensitivity and scaling factors based on specific robot builds. Add options for configuring steering sensitivity in `Remote-Car.py`.
 
