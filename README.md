@@ -1,6 +1,6 @@
-# Pybricks Boxing and Remote-Controlled Car Projects
+# Pybricks Boxing, Remote-Controlled Car, and Tank Drive Projects
 
-This repository contains two Python scripts written for LEGO® SPIKE™ Prime robots programmed with [Pybricks](https://pybricks.com/). These projects demonstrate how to control LEGO robots with an Xbox Controller, enabling either a boxing robot or a remote-controlled car.
+This repository contains three Python scripts written for LEGO® SPIKE™ Prime robots programmed with [Pybricks](https://pybricks.com/). These projects demonstrate how to control LEGO robots with an Xbox Controller, enabling a boxing robot, a remote-controlled car, or a tank-drive robot with an arm.
 
 ---
 
@@ -69,20 +69,44 @@ This script implements a remote-controlled car with steering and an optional arm
 
 ---
 
+### 3. TankDrive_Arm.py
+
+This script controls a robot using tank drive steering and includes a simple arm mechanism, all controlled via an Xbox controller.
+
+#### Features:
+- **Tank Drive:** Uses Xbox triggers (RT/LT) for forward/backward motion and the left joystick (X-axis) for steering.
+- **Arm Control:** Button A controls the movement of a single arm motor (down when pressed, up when released).
+- **Control Refinements:** Implements joystick deadzone and speed scaling for smoother control.
+
+#### Motors Configuration:
+- **Left Drive Motor:** Port C (Clockwise)
+- **Right Drive Motor:** Port D (Counter-Clockwise)
+- **Arm Motor:** Port E (Clockwise)
+
+#### Controls:
+- **RT/LT (Triggers):** Control forward and backward speed (RT forward, LT backward).
+- **Left Joystick (X-axis):** Adjust steering.
+- **A Button:** Press to move the arm down, release to move it up.
+
+![Tank Drive Arm Demo](https://placeholder.com/tank_arm_robot.gif)
+
+---
+
 ## Installation and Usage
 
-1. Install Pybricks firmware on your hub by following the [official guide](https://pybricks.com/learn/getting-started/install-pybricks/).
-2. Connect the appropriate motors to the hub ports as described in the scripts.
-3. Copy the desired script (`Boxing.py` or `Remote-Car.py`) to the hub using the Pybricks code editor.
-4. Pair your Xbox controller with the hub via Bluetooth.
-5. Run the script on your hub and control your robot using the Xbox controller.
+1.  Install Pybricks firmware on your hub by following the [official guide](https://pybricks.com/learn/getting-started/install-pybricks/).
+2.  Connect the appropriate motors to the hub ports as described in the scripts (`Boxing.py`, `Remote-Car.py`, or `TankDrive_Arm.py`).
+3.  Copy the desired script to the hub using the Pybricks code editor. Ensure the script file name matches (e.g., save the provided code as `TankDrive_Arm.py`).
+4.  Pair your Xbox controller with the hub via Bluetooth.
+5.  Run the script on your hub and control your robot using the Xbox controller.
 
 ---
 
 ## Troubleshooting
 
-- Ensure the Xbox controller is properly connected to the hub. If it fails to connect, the program will retry until the connection is established.
-- Verify motor connections and directions match the ports and configuration in the code.
+- Ensure the Xbox controller is properly connected to the hub. If it fails to connect, the program will print messages and retry until the connection is established.
+- Verify motor connections and directions match the ports and configuration in the specific code file you are using.
+- Adjust `DEADZONE_THRESHOLD` and `SPEED_SCALE_FACTOR` in `TankDrive_Arm.py` if controls feel too sensitive or too slow.
 
 ---
 
@@ -90,6 +114,7 @@ This script implements a remote-controlled car with steering and an optional arm
 
 - Add more feedback to the controller, such as vibrations or LED signals.
 - Implement additional modes and functionality, such as autonomous features or sensor integration.
+- Refine control sensitivity and scaling factors based on specific robot builds.
 
 ---
 
